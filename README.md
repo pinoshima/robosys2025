@@ -1,6 +1,6 @@
 # robosys2025
 
-![test](https://github.com/KaitoShima/robosys2025/actions/workflows/test.yml/badge.svg)
+![test](https://github.com/pinoshima/robosys2025/actions/workflows/test.yml/badge.svg)
 
 ロボットシステム学課題１
 
