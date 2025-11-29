@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2025 Kaito Shima
+# SPDX-License-Identifier: BSD-3-Clause
+import random
+
+artists = ["Mr.Children", "back number", "YOASOBI"]
+
+songs = {
+    "Mr.Children":["HANABI", "Sign", "しるし"],
+    "back number":["fish", "ハッピーエンド", "幸せ"],
+    "YOASOBI":["夜に駆ける", "モノトーン", "海のまにまに"]
+}
+
+artist = random.choice(artists)
+song = random.choice(songs[artist])
+
+print("今日のおすすめのアーティストは", artist)
+print("おすすめの曲は", song)
