@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Kaito Shima
 # SPDX-License-Identifier: BSD-3-Clause
 
-pino, nino = map(int, input("整数の1~5と6~10を入力してください（例: 1 6）: ").split())
+pino, nino = map(int, input().split())
 
 if pino >= 6 or pino <= 0:
     print("もう一度整数の1~5を入力してください")
