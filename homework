@@ -14,5 +14,5 @@ songs = {
 artist = random.choice(artists)
 song = random.choice(songs[artist])
 
-print("今日のおすすめのアーティストは", artist)
-print("おすすめの曲は", song)
+print("今日のおすすめのアーティストは " + artist)
+print("おすすめの曲は " + song)
