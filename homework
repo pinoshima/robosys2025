@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # SPDX-FileCopyrightText: 2025 Kaito Shima
-# SPDX-License-Identifier: BSD-3-Claus
+# SPDX-License-Identifier: BSD-3-Clause
 
 pino = int(input("整数の1~5を入力してください:"))
 if pino>=6:
