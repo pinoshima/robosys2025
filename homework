@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 # 2つの数字をまとめて入力（例: 1 6）
-pino, nino = map(int, input("整数の1~5と6~10を入力してください（例: 1 6）: ").split())
+pino, nino = map(int, input().split())
 
 # ----- アーティスト名リスト -----
 artists = {
