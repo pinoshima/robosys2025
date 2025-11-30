@@ -10,7 +10,7 @@ ng () {
 res=0
 
 ### EXECUTION TEST ###
-out=$(./homework)
+out=$(printf "1\n6\n" | ./homework)
 [ "$?" = 0 ] || ng "$LINENO"
 
 ### LINE COUNT TEST ###
@@ -18,26 +18,32 @@ lines=$(echo "$out" | wc -l)
 [ "$lines" = 2 ] || ng "$LINENO"
 
 ### CONTENT TEST ###
-echo "$out" | grep -q "今日のおすすめのアーティストは" || ng "$LINENO"
-echo "$out" | grep -q "おすすめの曲は" || ng "$LINENO"
+# 1行目チェック
+echo "$out" | head -n 1 | grep -q "整数の1~5を入力してください:" || ng "$LINENO"
+
+# 2行目チェック
+echo "$out" | tail -n 1 | grep -q "整数の6~10を入力してください:" || ng "$LINENO"
 
 ### ARTIST VALIDATION ###
-# 1行目から「今日のおすすめのアーティストは 」の部分を削除
-artist=$(echo "$out" | head -n 1 | sed 's/今日のおすすめのアーティストは //')
+artist=$(echo "$out" | head -n 1 | sed 's/整数の1~5を入力してください://')
 
 case "$artist" in
-    "Mr.Children"|"back number"|"YOASOBI") ;;
+    "Mr.Children"|"back number"|"嵐"|"あいみょん"|"サカナクション") ;;
     *) ng "$LINENO" ;;
 esac
 
 ### SONG VALIDATION ###
-# 2行目から「おすすめの曲は 」の部分を削除
-song=$(echo "$out" | tail -n 1 | sed 's/おすすめの曲は //')
+song=$(echo "$out" | tail -n 1 | sed 's/整数の6~10を入力してください://')
 
 case "$song" in
-    "HANABI"|"Sign"|"しるし"|"fish"|"ハッピーエンド"|"幸せ"|"夜に駆ける"|"モノトーン"|"海のまにまに") ;;
+    "Any"|"himawari"|"UFO"|"羊、吠える"|"深海"|\
+    "fish"|"ハッピーエンド"|"瞬き"|"ブルーアンバー"|"幸せ"|\
+    "エナジーソング"|"果てない空"|"サーカス"|"シリウス"|"春風スニーカー"|\
+    "姿"|"森のくまさん"|"ジェニファー"|"ビーナスベルト"|"MIO"|\
+    "アルクアラウンド"|"ミュージック"|"陽炎"|"モス"|"多分、風") ;;
     *) ng "$LINENO" ;;
 esac
 
 [ "$res" = 0 ] && echo OK
 exit $res
+
