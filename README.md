@@ -1,9 +1,11 @@
 # おすすめのアーティストと曲の提供コマンド
 ![test](https://github.com/pinoshima/robosys2025/actions/workflows/test.yml/badge.svg)
 
-実行するとランダムでアーティストと曲が出力される．
+## コマンドの機能
+使用者に数字を入力してもらい，数字に応じた結果を出力する．
 
 ## 利用方法
+まず，下記の通りにローカル環境で実行する．
 ```bash
 $ git clone https://git@github.com:pinoshima/robosys2025.git
 $ cd robosys2025 
