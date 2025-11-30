@@ -11,9 +11,13 @@ $ ./homework
 ```
 
 ## 実行例
-今日のおすすめのアーティストは YOASOBI
+整数の1~5を入力してください:4
 
-おすすめの曲は 海のまにまに
+あいみょん
+
+整数の6~10を入力してください:9
+
+ビーナスベルト
 
 ## 必用なソフトウェア
 - Python
@@ -28,9 +32,8 @@ $ ./homework
 
 ## 助言者
 - 学籍番号 24C1053 氏名 小屋 玲旺斗
-
-- 学籍番号 24C1105 氏名 藤竹 裕人 
+- 学籍番号 24C1105 氏名 藤竹 裕人
 
 ## 参考文献
-- https://note.com/note_by_kairi/n/na8e494923d52
-- https://programming-mondai.com/top/python_top/l1-06-2/
+- https://ryuichiueda.github.io/slides_marp/robosys2025/lesson3.html#1
+- https://ryuichiueda.github.io/slides_marp/robosys2025/lesson3.html#1
