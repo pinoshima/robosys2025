@@ -20,3 +20,7 @@ $ ./homework
 ## ライセンス
 - このソフトウェアパッケージは, 3条項BSDライセンスの下, 再頒布および使用が許可されます.
 - © 2025 Kaito Shima
+
+## 参考文献
+- https://note.com/note_by_kairi/n/na8e494923d52
+- https://programming-mondai.com/top/python_top/l1-06-2/
