@@ -3,9 +3,12 @@
 
 実行するとランダムでアーティストと曲が出力される．
 
-## 使用例
+## 利用方法
+$ git clone https://git@github.com:pinoshima/robosys2025.git
+$ cd robosys2025 
 $ ./homework
 
+## 実行例
 今日のおすすめのアーティストは YOASOBI
 
 おすすめの曲は 海のまにまに
