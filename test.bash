@@ -10,7 +10,8 @@ ng () {
 res=0
 
 ### EXECUTION TEST ###
-out=$(printf "1\n6\n" | ./homework)
+# テスト用の入力（例：1 6）
+out=$(printf "1 6\n" | ./homework)
 [ "$?" = 0 ] || ng "$LINENO"
 
 ### LINE COUNT TEST ###
@@ -18,14 +19,16 @@ lines=$(echo "$out" | wc -l)
 [ "$lines" = 2 ] || ng "$LINENO"
 
 ### CONTENT TEST ###
-# 1行目チェック
-echo "$out" | head -n 1 | grep -q "整数の1~5を入力してください:" || ng "$LINENO"
+# アーティスト名が1行目にあるか
+echo "$out" | head -n 1 | grep -qE "Mr.Children|back number|嵐|あいみょん|サカナクション" \
+    || ng "$LINENO"
 
-# 2行目チェック
-echo "$out" | tail -n 1 | grep -q "整数の6~10を入力してください:" || ng "$LINENO"
+# 曲名が2行目にあるか
+echo "$out" | tail -n 1 | grep -qE "Any|himawari|UFO|羊、吠える|深海|fish|ハッピーエンド|瞬き|ブルーアンバー|幸せ|エナジーソング|果てない空|サーカス|シリウス|春風スニーカー|姿|森のくまさん|ジェニファー|ビーナスベルト|MIO|アルクアラウンド|ミュージック|陽炎|モス|多分、風" \
+    || ng "$LINENO"
 
 ### ARTIST VALIDATION ###
-artist=$(echo "$out" | head -n 1 | sed 's/整数の1~5を入力してください://')
+artist=$(echo "$out" | head -n 1 | sed 's/.*: //')
 
 case "$artist" in
     "Mr.Children"|"back number"|"嵐"|"あいみょん"|"サカナクション") ;;
@@ -33,17 +36,14 @@ case "$artist" in
 esac
 
 ### SONG VALIDATION ###
-song=$(echo "$out" | tail -n 1 | sed 's/整数の6~10を入力してください://')
+song=$(echo "$out" | tail -n 1)
 
 case "$song" in
-    "Any"|"himawari"|"UFO"|"羊、吠える"|"深海"|\
-    "fish"|"ハッピーエンド"|"瞬き"|"ブルーアンバー"|"幸せ"|\
-    "エナジーソング"|"果てない空"|"サーカス"|"シリウス"|"春風スニーカー"|\
-    "姿"|"森のくまさん"|"ジェニファー"|"ビーナスベルト"|"MIO"|\
-    "アルクアラウンド"|"ミュージック"|"陽炎"|"モス"|"多分、風") ;;
+    "Any"|"himawari"|"UFO"|"羊、吠える"|"深海"|"fish"|"ハッピーエンド"|"瞬き"|"ブルーアンバー"|"幸せ"|\
+    "エナジーソング"|"果てない空"|"サーカス"|"シリウス"|"春風スニーカー"|"姿"|"森のくまさん"|\
+    "ジェニファー"|"ビーナスベルト"|"MIO"|"アルクアラウンド"|"ミュージック"|"陽炎"|"モス"|"多分、風") ;;
     *) ng "$LINENO" ;;
 esac
 
 [ "$res" = 0 ] && echo OK
 exit $res
-
