@@ -2,56 +2,36 @@
 # SPDX-FileCopyrightText: 2025 Kaito Shima
 # SPDX-License-Identifier: BSD-3-Clause
 
-pino = int(input("整数の1~5を入力してください:"))
-if pino>=6:
-    print("もう一度整数の1~5を入力してください:", end="");pino=int(input())
+# 2つの数字をまとめて入力（例: 1 6）
+pino, nino = map(int, input("整数の1~5と6~10を入力してください（例: 1 6）: ").split())
 
-if pino==1:
-    print("Mr.Children");nino=int(input("整数の6~10を入力してください:"))
-    if nino<=5:
-     print("もう一度整数の6~10を入力してください:",end="");nino=int(input())
-    if nino==6:print("Any")
-    elif nino==7:print("himawari")
-    elif nino==8:print("UFO")
-    elif nino==9:print("羊、吠える")
-    elif nino==10:print("深海")
+# ----- アーティスト名リスト -----
+artists = {
+    1: "Mr.Children",
+    2: "back number",
+    3: "嵐",
+    4: "あいみょん",
+    5: "サカナクション"
+}
 
-elif pino==2:
-    print("back number");nino=int(input("整数の6~10を入力してください:"))
-    if nino<=5:
-     print("もう一度整数の6~10を入力してください:",end="");nino=int(input())
-    if nino==6:print("fish")
-    elif nino==7:print("ハッピーエンド")
-    elif nino==8:print("瞬き")
-    elif nino==9:print("ブルーアンバー")
-    elif nino==10:print("幸せ")
+# ----- 曲名リスト -----
+songs = {
+    1: {6: "Any", 7: "himawari", 8: "UFO", 9: "羊、吠える", 10: "深海"},
+    2: {6: "fish", 7: "ハッピーエンド", 8: "瞬き", 9: "ブルーアンバー", 10: "幸せ"},
+    3: {6: "エナジーソング", 7: "果てない空", 8: "サーカス", 9: "シリウス", 10: "春風スニーカー"},
+    4: {6: "姿", 7: "森のくまさん", 8: "ジェニファー", 9: "ビーナスベルト", 10: "MIO"},
+    5: {6: "アルクアラウンド", 7: "ミュージック", 8: "陽炎", 9: "モス", 10: "多分、風"}
+}
 
-elif pino==3:
-    print("嵐");nino=int(input("整数の6~10を入力してください:"))
-    if nino<=5:
-     print("もう一度整数の6~10を入力してください:",end="");nino=int(input())
-    if nino==6:print("エナジーソング")
-    elif nino==7:print("果てない空")
-    elif nino==8:print("サーカス")
-    elif nino==9:print("シリウス")
-    elif nino==10:print("春風スニーカー")
+# ----- 入力チェック -----
+if pino not in artists:
+    print("1〜5の整数を入力してください")
+    exit(1)
 
-elif pino==4:
-    print("あいみょん");nino=int(input("整数の6~10を入力してください:"))
-    if nino<=5:
-     print("もう一度整数の6~10を入力してください:",end="");nino=int(input())
-    if nino==6:print("姿")
-    elif nino==7:print("森のくまさん")
-    elif nino==8:print("ジェニファー")
-    elif nino==9:print("ビーナスベルト")
-    elif nino==10:print("MIO")
+if nino not in songs[pino]:
+    print("6〜10の整数を入力してください")
+    exit(1)
 
-elif pino==5:
-    print("サカナクション");nino=int(input("整数の6~10を入力してください:"))
-    if nino<=5:
-     print("もう一度整数の6~10を入力してください:",end="");nino=int(input())
-    if nino==6:print("アルクアラウンド")
-    elif nino==7:print("ミュージック")
-    elif nino==8:print("陽炎")
-    elif nino==9:print("モス")
-    elif nino==10:print("多分、風")
+# ----- 出力 -----
+print(artists[pino])
+print(songs[pino][nino])
