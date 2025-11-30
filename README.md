@@ -37,4 +37,4 @@ $ ./homework
 
 ## 参考文献
 - https://ryuichiueda.github.io/slides_marp/robosys2025/lesson3.html#1
-- https://ryuichiueda.github.io/slides_marp/robosys2025/lesson3.html#1
+- https://ryuichiueda.github.io/slides_marp/robosys2025/lesson7.html
