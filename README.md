@@ -9,7 +9,8 @@
 ```bash
 $ git clone https://git@github.com:pinoshima/robosys2025.git
 $ cd robosys2025 
-$ ./select_song
+$ echo "3 8" | ./select_song
+# これは一例です．
 ```
 
 ## 実行例
