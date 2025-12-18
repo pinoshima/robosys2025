@@ -13,8 +13,9 @@ $ ./select_song
 ```
 
 ## 実行例
-echo "整数の1～5 と6～10 を**空白を開けて**入力する．(例:echo "3 8")
-```echo "3 8" | ./select_song
+echo "整数の1～5 と6～10" を**空白を開けて**入力する．(例:echo "3 8" | ./select_song)
+```bash
+echo "3 8" | ./select_song
 嵐 Sakura
 ```
 
