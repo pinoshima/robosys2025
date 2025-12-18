@@ -9,15 +9,13 @@
 ```bash
 $ git clone https://git@github.com:pinoshima/robosys2025.git
 $ cd robosys2025 
-$ ./homework
+$ ./select_song
 ```
 
 ## 実行例
-整数の１～５と６～１０を**空白を開けて**入力する．（例: 1 6）)
-```bash
-3 9
-嵐
-シリウス
+echo "整数の1～5 と6～10 を**空白を開けて**入力する．(例:echo "3 8")
+```echo "3 8" | ./select_song
+嵐 Sakura
 ```
 
 ## 必用なソフトウェア

@@ -1,0 +1,39 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2025 Kaito Shima
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+
+songs = {
+    1: ("Mr.Children", {
+        6: "靴ひも", 7: "himawari", 8: "UFO", 9: "羊、吠える", 10: "深海"
+    }),
+    2: ("back number", {
+        6: "東京の夕焼け", 7: "one room", 8: "あやしいひかり", 9: "こわいはなし", 10: "風の強い日"
+    }),
+    3: ("嵐", {
+        6: "エナジーソング", 7: "果てない空", 8: "Sakura", 9: "シリウス", 10: "truth"
+    }),
+    4: ("あいみょん", {
+        6: "姿", 7: "森のくまさん", 8: "ジェニファー", 9: "ビーナスベルト", 10: "MIO"
+    }),
+    5: ("サカナクション", {
+        6: "アルクアラウンド", 7: "プラトー", 8: "陽炎", 9: "ユリイカ", 10: "多分、風"
+    }),
+}
+
+try:
+    data = sys.stdin.read().split()
+    pino = int(data[0])
+    nino = int(data[1])
+except Exception:
+    print("invalid input", file=sys.stderr)
+    sys.exit(1)
+
+if pino not in songs or nino not in songs[pino][1]:
+    print("out of range", file=sys.stderr)
+    sys.exit(1)
+
+artist, songlist = songs[pino]
+print(f"{artist} {songlist[nino]}")
+sys.exit(0)

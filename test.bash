@@ -11,39 +11,25 @@ res=0
 
 ### EXECUTION TEST ###
 # テスト用の入力（例：1 6）
-out=$(printf "1 6\n" | ./homework)
+out=$(printf "1 6\n" | ./select_song)
 [ "$?" = 0 ] || ng "$LINENO"
 
 ### LINE COUNT TEST ###
 lines=$(echo "$out" | wc -l)
-[ "$lines" = 2 ] || ng "$LINENO"
+[ "$lines" = 1 ] || ng "$LINENO"  # Pythonスクリプトは1行出力
 
 ### CONTENT TEST ###
-# アーティスト名が1行目にあるか
-echo "$out" | head -n 1 | grep -qE "Mr.Children|back number|嵐|あいみょん|サカナクション" \
+# 出力をアーティストと曲名に分割
+artist=$(echo "$out" | awk '{print $1}')
+song=$(echo "$out" | awk '{print $2}')
+
+# アーティスト名チェック
+echo "$artist" | grep -qE "Mr.Children|back number|嵐|あいみょん|サカナクション" \
     || ng "$LINENO"
 
-# 曲名が2行目にあるか
-echo "$out" | tail -n 1 | grep -qE "Any|himawari|UFO|羊、吠える|深海|fish|ハッピーエンド|瞬き|ブルーアンバー|幸せ|エナジーソング|果てない空|サーカス|シリウス|春風スニーカー|姿|森のくまさん|ジェニファー|ビーナスベルト|MIO|アルクアラウンド|ミュージック|陽炎|モス|多分、風" \
+# 曲名チェック
+echo "$song" | grep -qE "靴ひも|himawari|UFO|羊、吠える|深海|東京の夕焼け|one room|あやしいひかり|こわいはなし|風の強い日|エナジーソング|果てない空|Sakura|シリウス|truth|姿|森のくまさん|ジェニファー|ビーナスベルト|MIO|アルクアラウンド|プラトー|陽炎|ユリイカ|多分、風" \
     || ng "$LINENO"
-
-### ARTIST VALIDATION ###
-artist=$(echo "$out" | head -n 1 | sed 's/.*: //')
-
-case "$artist" in
-    "Mr.Children"|"back number"|"嵐"|"あいみょん"|"サカナクション") ;;
-    *) ng "$LINENO" ;;
-esac
-
-### SONG VALIDATION ###
-song=$(echo "$out" | tail -n 1)
-
-case "$song" in
-    "Any"|"himawari"|"UFO"|"羊、吠える"|"深海"|"fish"|"ハッピーエンド"|"瞬き"|"ブルーアンバー"|"幸せ"|\
-    "エナジーソング"|"果てない空"|"サーカス"|"シリウス"|"春風スニーカー"|"姿"|"森のくまさん"|\
-    "ジェニファー"|"ビーナスベルト"|"MIO"|"アルクアラウンド"|"ミュージック"|"陽炎"|"モス"|"多分、風") ;;
-    *) ng "$LINENO" ;;
-esac
 
 [ "$res" = 0 ] && echo OK
 exit $res
