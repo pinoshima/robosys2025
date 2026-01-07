@@ -10,11 +10,11 @@
 $ git clone https://git@github.com:pinoshima/robosys2025.git
 $ cd robosys2025 
 $ echo "3 8" | ./select_song
-# これは一例です．
+嵐 Sakura
 ```
 
 ## 実行例
-echo "整数の1～5 と6～10" を**空白を開けて**入力する．(例:echo "3 8" | ./select_song)
+echo "整数の1～5 と6～10" を**空白を開けて**入力する．
 ```bash
 echo "3 8" | ./select_song
 嵐 Sakura
