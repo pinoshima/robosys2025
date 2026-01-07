@@ -4,19 +4,13 @@
 ## コマンドの機能
 使用者に数字を入力してもらい，数字に応じた結果を出力する．
 
-## 利用方法
-まず，下記の通りにローカル環境で実行する．
+## 利用方法 ＆ 実行例
+下記の通りにローカル環境で実行する．
+echo "整数の1～5 と6～10" を**空白を開けて**入力する．
 ```bash
 $ git clone https://git@github.com:pinoshima/robosys2025.git
 $ cd robosys2025 
 $ echo "3 8" | ./select_song
-嵐 Sakura
-```
-
-## 実行例
-echo "整数の1～5 と6～10" を**空白を開けて**入力する．
-```bash
-echo "3 8" | ./select_song
 嵐 Sakura
 ```
 
